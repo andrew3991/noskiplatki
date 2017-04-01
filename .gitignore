@@ -1,0 +1,4 @@
+*.pyc
+*.sock
+__pycache__
+.DS_Store

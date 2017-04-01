@@ -1,0 +1,377 @@
+html {
+  overflow-x: hidden;
+}
+
+html, html a, body {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  position: relative;
+  font-family: Hind, sans-serif;
+}
+
+p {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Hind, sans-serif;
+  color: #a6a7aa;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+em,
+li,
+li a {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Hind, sans-serif;
+  color: #515769;
+}
+
+a {
+  font-family: Hind, sans-serif;
+  color: #81848f;
+  outline: 0;
+}
+
+a:focus, a:hover, a:active {
+  outline: 0;
+  color: #999caa;
+  text-decoration: none;
+}
+
+.link {
+  position: relative;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Hind, sans-serif;
+  text-transform: uppercase;
+}
+
+.link:after {
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  width: 9px;
+  height: 2px;
+  background: #17bed2;
+  content: " ";
+}
+
+span {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Hind, sans-serif;
+  color: #bfc1c7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-family: Hind, sans-serif;
+  color: #515769;
+  line-height: 1.4;
+  margin: 0 0 15px;
+}
+
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+  color: #515769;
+}
+
+h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
+  color: #999caa;
+  text-decoration: none;
+}
+
+h1 > a:focus, h2 > a:focus, h3 > a:focus, h4 > a:focus, h5 > a:focus, h6 > a:focus {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+::selection {
+  color: #fff;
+  background: #17bed2;
+  text-shadow: none;
+}
+
+::-webkit-selection {
+  color: #fff;
+  background: #17bed2;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #17bed2;
+  text-shadow: none;
+}
+
+:active,
+:focus {
+  outline: none;
+}
+
+
+
+
+.navbar {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.example3 .navbar-brand {
+  height: 80px;
+}
+
+.example3 .nav >li >a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.example3 .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+
+.navbar-brand>h3 {
+  height: 100%;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 55px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+.navbar-inverse{
+	background-color: rgba(125,125,125,0.5);
+}
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: #9d9d9d ;
+}
+.navbar-inverse .navbar-nav>li>a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 55px;
+  padding: 20px;
+}
+
+
+
+
+.btn-theme {
+  position: relative;
+  display: inline-block;
+  line-height: 1.4;
+  text-align: center;
+  background-image: none;
+  border-style: solid;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-theme:focus, .btn-theme:active:focus, .btn-theme.active:focus, .btn-theme.focus, .btn-theme:active.focus, .btn-theme.active.focus {
+  outline: none;
+}
+
+.btn-theme:hover {
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.btn-theme:hover, .btn-theme:focus, .btn-theme.focus {
+  text-decoration: none;
+}
+
+.btn-theme:active, .btn-theme.active {
+  background-image: none;
+  outline: 0;
+}
+
+.btn-theme.disabled, .btn-theme[disabled],
+fieldset[disabled] .btn-theme {
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}
+
+.btn-icon {
+  position: relative;
+  top: 1px;
+  margin-right: 10px;
+}
+
+.btn-white-bg {
+  color: #515769;
+  background: #fff;
+  border-color: transparent;
+  border-width: 0;
+}
+
+.btn-white-bg:hover, .btn-white-bg:focus, .btn-white-bg.focus {
+  color: #fff;
+  background: #17bed2;
+  border-color: transparent;
+}
+
+.btn-white-brd {
+  color: #fff;
+  background: transparent;
+  border-color: #fff;
+  border-width: 2px;
+}
+
+.btn-white-brd:hover, .btn-white-brd:focus, .btn-white-brd.focus {
+  color: #515769;
+  background: #fff;
+  border-color: #fff;
+}
+
+.btn-default-bg {
+  color: #515769;
+  background: #f3f4f5;
+  border-color: transparent;
+  border-width: 0;
+}
+
+.btn-default-bg:hover, .btn-default-bg:focus, .btn-default-bg.focus {
+  color: #fff;
+  background: #17bed2;
+  border-color: transparent;
+}
+
+.btn-theme-sm {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 15px 40px;
+}
+
+.btn-theme-md {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 20px 30px;
+}
+
+
+
+
+
+
+.promo-block {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  /*background: url('{{ STATIC_URL }}images/head.jpg') no-repeat;*/
+  background-size: cover;
+  background-position: center center;
+  padding: 250px 0 200px;
+}
+
+.promo-block:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(81, 87, 105, 0.4);
+  content: " ";
+}
+.promo-block .promo-block-title {
+  font-size: 70px;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .promo-block .promo-block-title {
+    font-size: 50px;
+  }
+}
+
+.promo-block .promo-block-text {
+  font-size: 25px;
+  color: #fff;
+}
+
+
+/*.bgimage {
+	
+	background-image: url(../head.jpg);
+	background-size: cover;
+	-webkit-background-size: cover;
+	color:#fff;
+	min-height: 400px; 
+	text-align:center;
+	margin-top: -20px;
+	overflow: auto;
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 20px;
+}
+.bgimage-inside {
+	position: relative;
+	padding-bottom: 70.72%;  this is actually (426/1140)*100 
+	
+}
+
+#myclass{
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 50%;
+  	left: 50%;
+  	background-color: rgba(28, 29, 31,0.5);
+  	transform: translate(-50%, -50%);
+}
+h1.first{
+	font-size: 5vh;
+}*/
+/* #myclass{
+ 	position: relative;
+ 	margin-bottom: 30px;
+ }
+.myclass {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  transform: translate(-50%, -50%);
+
+
+}*/
+
