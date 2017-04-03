@@ -7,30 +7,67 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Basic Bootstrap Template</title>   
-
-    <style type="text/css">
-    .well {background: #EEE; padding: 30px 0; text-align: center;}
-    #logo .well,
-    #header-content .well {height: 75px;}
-
-    #featured .product .well {height: 250px;}
-    #sidebar .well{height: 520px;}
-
-    .well {height: 300px;}
-
-    #logo, #header-content,
-    #featured .product, #sidebar,
-    #footer .menu-footer {margin-bottom: 20px;}
-  </style>
+    <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+<!--footer start from here-->
+    <title>Basic Bootstrap Template</title>
 
 
     <style>
     .promo-block
     {
-      background: url('{% static 'images/head.jpg'%}') no-repeat;
+      background: url('{% static 'images/head_1.jpg'%}') no-repeat;
     }
+    #sidebar
+    {
+      background: url('{% static 'images/socks_1.jpg'%}') no-repeat;
+      position: relative;
+      z-index: 1;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: auto;
+    }
+    .well-1
+    {
+      background: url('{% static 'images/socks_2.jpg'%}') no-repeat;
+      position: relative;
+      z-index: 1;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: auto;
+    }
+    .well-2
+    {
+      background: url('{% static 'images/socks_3.png'%}') no-repeat;
+      position: relative;
+      z-index: 1;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: auto;
+    }
+    .well-3
+    {
+      background: url('{% static 'images/socks_4.jpg'%}') no-repeat;
+      position: relative;
+      z-index: 1;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: auto;
+    }
+    .well-4
+    {
+      background: url('{% static 'images/socks_5.jpg'%}') no-repeat;
+      position: relative;
+      z-index: 1;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: auto;
+    }
+
     </style>
 
     <!-- 1. Подключаем скомпилированный и минимизированный файл CSS Bootstrap 3 -->
@@ -47,7 +84,7 @@
 	  
  
 
-<header class="example3 header navbar-fixed-top">
+<header class="example3 header navbar-top">
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header ">
@@ -106,31 +143,95 @@
 <div id="wrapper" class="container">
   
   <div  class="row">
-    <div  class="col-md-12">
+    <div  class="col-lg-4">
       <div class="row">
-        <div class="product col-sm-6 col-md-6 col-lg-6"><div class="well">ЖЕНСКИЕ НОСКИ</div></div>
-        <div class="product col-sm-6 col-md-6 col-lg-6"><div class="well">ПЛАТКИ</div></div>
-        <div class="product col-sm-6 col-md-12 col-lg-12"><div class="well" id="sidebar">НОВИНКИ</div></div>
-      </div>
-      <!-- <div id="sidebar" class="col-md-3"><div class="well">3<br>#sidebar</div></div> -->
-      <div class="row">
-        <div class="product col-sm-6 col-md-6 col-lg-6"><div class="well">МУЖСКИЕ НОСКИ</div></div>
-        <div class="product col-sm-6 col-md-6 col-lg-6"><div class="well">АКЦИИ</div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-1"><a href="#">ЖЕНСКИЕ НОСКИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-2"><a href="#">ПЛАТКИ</a></div></div>
       </div>
     </div>
-    
+    <div  class="col-lg-4">
+      <div class="row">
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div   id="sidebar"><a href="#">НОВИНКИ</a></div></div>
+      </div>
+    </div>
+    <div  class="col-lg-4">
+      <div class="row">
+        <div class="product col-sm-4 col-md-4 col-lg-12 "><div class="well well-3"><a href="#">МУЖСКИЕ НОСКИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-4"><a href="#">АКЦИИ</a></div></div>
+      </div>
+    </div>
   </div>
-  <div id="footer">
-    <div class="footer-top row">
-      <div class="menu-footer col-sm-12 col-md-12"><div class="well">menu-footer</div></div>
-    </div>
-    </div>
+
 </div>
 
 
+<footer>
+  <div class="container-fluid" id="footer-wrapper">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 footerleft ">
+        <div class="logofooter"> Logo</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+        <p><i class="fa fa-map-pin"></i> Russia ,  Kaliningrad, Some street 9,  236000 </p>
+        <p><i class="fa fa-phone"></i> Phone  : +91 9999 878 398</p>
+        <p><i class="fa fa-envelope"></i> E-mail : info@info.info</p>
+        
+      </div>
+      <!-- <div class="col-md-2 col-sm-6 paddingtop-bottom">
+        <h6 class="heading7">GENERAL LINKS</h6>
+        <ul class="footer-ul">
+          <li><a href="#"> Career</a></li>
+          <li><a href="#"> Privacy Policy</a></li>
+          <li><a href="#"> Terms & Conditions</a></li>
+          <li><a href="#"> Client Gateway</a></li>
+          <li><a href="#"> Ranking</a></li>
+          <li><a href="#"> Case Studies</a></li>
+          <li><a href="#"> Frequently Ask Questions</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 paddingtop-bottom">
+        <h6 class="heading7">LATEST POST</h6>
+        <div class="post">
+          <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
+          <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
+          <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 paddingtop-bottom">
+        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <div class="fb-xfbml-parse-ignore">
+            <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</footer>
+<!--footer start from here-->
+
+<div class="copyright">
+  <div class="container">
+    <div class="col-md-6">
+      <p>noski-platki.ru</p>
+    </div>
+    <div class="col-md-6">
+      <ul class="bottom_ul">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Faq's</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Site Map</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
-  	
+<!-- </div>
+<div >
+    <div class=" row">
+      <div class=" col-sm-12 col-md-12"><div class="well">menu-footer</div></div>
+    </div>
+    </div> -->
 	</body>
 </html>
 
