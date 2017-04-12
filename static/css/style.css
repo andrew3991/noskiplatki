@@ -1,5 +1,7 @@
 html {
   overflow-x: hidden;
+  position: relative;
+  min-height: 100%;
 }
 
 html, html a, body {
@@ -7,8 +9,8 @@ html, html a, body {
 }
 
 body {
-  position: relative;
   font-family: Hind, sans-serif;
+  margin-bottom: 100px;
 }
 
 p {
@@ -127,13 +129,16 @@ h4 {
 }
 
 
-
+/*!!!!!!!!!! шапка !!!!!!!!!!!!!!1*/
 
 .navbar {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    border: 0;
+    border-bottom:  2px solid black;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
     margin-bottom: 0px;
 }
 .navbar-inverse .navbar-toggle .icon-bar{
@@ -187,7 +192,7 @@ h4 {
 }
 
 
-
+/*!!!!!!!!!!!!button to the catalog on the first page*/
 
 .btn-theme {
   position: relative;
@@ -249,7 +254,7 @@ fieldset[disabled] .btn-theme {
 
 .btn-white-bg:hover, .btn-white-bg:focus, .btn-white-bg.focus {
   color: #fff;
-  background: #17bed2;
+  background: #2a3fde ;
   border-color: transparent;
 }
 
@@ -294,7 +299,7 @@ fieldset[disabled] .btn-theme {
 
 
 
-
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 .promo-block {
   position: relative;
@@ -338,9 +343,29 @@ fieldset[disabled] .btn-theme {
   margin-top: 100px;
 }
 
+#sidebar a{
+  color: white;
+  font-size: 24px;
+}
+
+
+#sidebar a:hover{
+  font-size: 30px;
+  color: #2a3fde;
+}
+
 .well{
   padding: 150px 0; 
   text-align: center;
+}
+
+.well a{
+  color: white;
+  font-size: 24px;
+}
+.well a:hover{
+  font-size: 30px;
+  color: #2a3fde;
 }
 
 #featured .product .well{
@@ -409,45 +434,123 @@ h1.first{
 
 }*/
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
-footer { background-color:#0c1a1e; min-height:250px; font-family: 'Open Sans', sans-serif; }
-.footerleft { margin-top:50px; padding:0 36px; }
-.logofooter { margin-bottom:10px; font-size:25px; color:#fff; font-weight:700;}
 
-.footerleft p { color:#fff; font-size:12px !important; font-family: 'Open Sans', sans-serif; margin-bottom:15px;}
-.footerleft p i { width:20px; color:#999;}
+/*!!!!!!!!!!!!!!!!!!!!!  footer  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 
-.paddingtop-bottom {  margin-top:50px;}
-.footer-ul { list-style-type:none;  padding-left:0px; margin-left:2px;}
-.footer-ul li { line-height:29px; font-size:12px;}
-.footer-ul li a { color:#a0a3a4; transition: color 0.2s linear 0s, background 0.2s linear 0s; }
-.footer-ul i { margin-right:10px;}
-.footer-ul li a:hover {transition: color 0.2s linear 0s, background 0.2s linear 0s; color:#ff670f; }
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  background-color: #f5f5f5;
+}
 
-.social:hover {
-     -webkit-transform: scale(1.1);
-     -moz-transform: scale(1.1);
-     -o-transform: scale(1.1);
- }
- 
- 
 
- 
- .icon-ul { list-style-type:none !important; margin:0px; padding:0px;}
- .icon-ul li { line-height:75px; width:100%; float:left;}
- .icon { float:left; margin-right:5px;}
- 
- 
- .copyright { min-height:40px; background-color:#000000;}
- .copyright p { text-align:left; color:#FFF; padding:10px 0; margin-bottom:0px;}
- .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
- .post p { font-size:12px; color:#FFF; line-height:20px;}
- .post p span { display:block; color:#8f8f8f;}
- .bottom_ul { list-style-type:none; float:right; margin-bottom:0px;}
- .bottom_ul li { float:left; line-height:40px;}
- .bottom_ul li:after { content:"/"; color:#FFF; margin-right:8px; margin-left:8px;}
- .bottom_ul li a { color:#FFF;  font-size:12px;}
- #footer-wrapper {margin-top: 100px;}
- #sidebar>a, .well>a{color:#FFF;  font-size:30px;font-family: 'Open Sans', sans-serif;font-weight:700;}
-  #sidebar>a:hover, .well>a:hover{color:#2a3fde;  font-size:36px;font-family: 'Open Sans', sans-serif;font-weight:750;}
+
+/*общий список товаров*/
+
+
+.top{
+  padding: 20px 0;
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.top-bl{
+  background: #bebebe;
+  padding: 15px;
+}
+.top-bl .cart{
+  float: right;
+}
+#sidebar-list ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+#sidebar-list ul li{
+  padding: 5px 10px;
+}
+#sidebar-list ul li.selected{
+  background: #0095ff;
+  color: white;
+  border-radius: 3px;
+}
+#sidebar-list ul li.selected a{
+  color: white;
+}
+.items{
+  margin-top: 20px;
+}
+.item{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.item a img{
+  margin-bottom: 15px;
+}
+.product-detail{
+  margin-top: 40px;
+}
+.price{
+  font-weight: 600;
+  font-size: 20px;
+}
+.product-detail h2{
+  font-size: 18px;
+}
+form.add{
+  margin-bottom: 10px;
+}
+form.add label{
+  margin-right: 10px;
+}
+#id_quantity{
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+form.add input[type="submit"]{
+  background: #2a6496;
+  border-radius: 3px;
+  border: 0;
+  padding: 5px 10px;
+  color: white;
+}
+.table-cart{
+  width: 100%;
+  margin: 10px 0;
+}
+.cart-img{
+  width: 10%;
+}
+th, td{
+  padding: 5px;
+}
+thead{
+  background: #2a6496;
+  color: white;
+}
+.btn{
+  background: #2a6496;
+  color: white;
+}
+.btn-light{
+  background: #808080;
+}
+.order-info h2{
+  margin-bottom: 20px;
+}
+.order-form{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.order-form label{
+  display: block;
+}
+.order-form input{
+  width: 100%;
+  padding: 5px 10px;
+}

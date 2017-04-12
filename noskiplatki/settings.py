@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-
+from django.core.mail import send_mail
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainpage',
+    'registr',
+    'catalog',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,22 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 
 )
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#двухфазовая аутентификац
+
+# добавляем приложение в setting.py
+ACCOUNT_ACTIVATION_DAYS = 1 # кол-во дней для хранения кода активации
+AUTH_PROFILE_MODULE = 'user_profile.UserProfile'
+# для отправки кода активации
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+AUTH_USER_EMAIL_UNIQUE = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'avmusss@gmail.com'
+EMAIL_HOST_PASSWORD = '1spain2lamanga3'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'avmusss@gmail.com'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

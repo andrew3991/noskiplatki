@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 <!--footer start from here-->
-    <title>Basic Bootstrap Template</title>
+    <title>noski-platki.ru</title>
 
 
     <style>
@@ -94,17 +94,19 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><h3>noski-platki.ru</h3><!-- <img src="{% static 'images/Kaliningrad.svg'%}" alt="" /> --></a>
+			<a class="navbar-brand" href="/"><h3>noski-platki.ru</h3><!-- <img src="{% static 'images/Kaliningrad.svg'%}" alt="" /> --></a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right my-navbar">
-				<li><a href="#">КАТАЛОГ</a></li>
+				<li><a href="{% url "catalog:ProductList" %}">КАТАЛОГ</a></li>
 				<li><a href="#">НОВОСТИ</a></li>
         <li><a href="#">ОПТОВИКАМ</a></li>
         <li><a href="#">ПОЛЕЗНАЯ ИНФОРМАЦИЯ</a></li>
         <li><a href="#">КОНТАКТЫ</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li> -->
+        <li><a href="/accounts/login/">Войти</a></li>
+        
 				<!-- <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -132,7 +134,7 @@
 				
 				<!-- <p class="promo-block-text">выставка продуктов и изделий <br> 4 - 9 марта 2017 Площадь"Родина-Мать"</p> -->
 				<h1 class="promo-block-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
-				<p><a class=" btn btn-theme btn-theme-md btn-white-bg text-uppercase" href="#" role="button">Купить</a></p>
+				<p><a class=" btn btn-theme btn-theme-md btn-white-bg text-uppercase" href="{% url "catalog:ProductList" %}" role="button">Купить</a></p>
 	  	</div>
 	</div>
 </div>
@@ -145,19 +147,19 @@
   <div  class="row">
     <div  class="col-lg-4">
       <div class="row">
-        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-1"><a href="#">ЖЕНСКИЕ НОСКИ</a></div></div>
-        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-2"><a href="#">ПЛАТКИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-1"><a href="{% url "catalog:ProductListByCategory" category_slug='zhenskie-noski' %}">ЖЕНСКИЕ НОСКИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-2"><a href="{% url "catalog:ProductListByCategory" category_slug='platki' %}">ПЛАТКИ</a></div></div>
       </div>
     </div>
     <div  class="col-lg-4">
       <div class="row">
-        <div class="product col-sm-4 col-md-4 col-lg-12"><div   id="sidebar"><a href="#">НОВИНКИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div   id="sidebar"><a href="{% url "catalog:ProductListByCategory" category_slug='novinki' %}">НОВИНКИ</a></div></div>
       </div>
     </div>
     <div  class="col-lg-4">
       <div class="row">
-        <div class="product col-sm-4 col-md-4 col-lg-12 "><div class="well well-3"><a href="#">МУЖСКИЕ НОСКИ</a></div></div>
-        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-4"><a href="#">АКЦИИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12 "><div class="well well-3"><a href="{% url "catalog:ProductListByCategory" category_slug='muzhskie-noski' %}">МУЖСКИЕ НОСКИ</a></div></div>
+        <div class="product col-sm-4 col-md-4 col-lg-12"><div class="well well-4"><a href="{% url "catalog:ProductListByCategory" category_slug='akcii' %}">АКЦИИ</a></div></div>
       </div>
     </div>
   </div>
@@ -165,66 +167,11 @@
 </div>
 
 
-<footer>
-  <div class="container-fluid" id="footer-wrapper">
-    <div class="row">
-      <div class="col-md-4 col-sm-6 footerleft ">
-        <div class="logofooter"> Logo</div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-        <p><i class="fa fa-map-pin"></i> Russia ,  Kaliningrad, Some street 9,  236000 </p>
-        <p><i class="fa fa-phone"></i> Phone  : +91 9999 878 398</p>
-        <p><i class="fa fa-envelope"></i> E-mail : info@info.info</p>
-        
-      </div>
-      <!-- <div class="col-md-2 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">GENERAL LINKS</h6>
-        <ul class="footer-ul">
-          <li><a href="#"> Career</a></li>
-          <li><a href="#"> Privacy Policy</a></li>
-          <li><a href="#"> Terms & Conditions</a></li>
-          <li><a href="#"> Client Gateway</a></li>
-          <li><a href="#"> Ranking</a></li>
-          <li><a href="#"> Case Studies</a></li>
-          <li><a href="#"> Frequently Ask Questions</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 col-sm-6 paddingtop-bottom">
-        <h6 class="heading7">LATEST POST</h6>
-        <div class="post">
-          <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
-          <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
-          <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 paddingtop-bottom">
-        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-          <div class="fb-xfbml-parse-ignore">
-            <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
-          </div>
-        </div>
-      </div> -->
-    </div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Place sticky footer content here.</p>
   </div>
 </footer>
-<!--footer start from here-->
-
-<div class="copyright">
-  <div class="container">
-    <div class="col-md-6">
-      <p>noski-platki.ru</p>
-    </div>
-    <div class="col-md-6">
-      <ul class="bottom_ul">
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Faq's</a></li>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">Site Map</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 
 <!-- </div>
 <div >
