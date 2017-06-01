@@ -1,6 +1,12 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
+SIZE_CHOICES = (
+	(1, '35-38'),
+	(2, '39-42'),
+	(3,'43-45'),
+)
 
 class Category(models.Model):
 	name = models.CharField(max_length=200, db_index=True)
@@ -28,6 +34,10 @@ class Product(models.Model):
 	available = models.BooleanField(default=True, verbose_name="Доступен")
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
+	size = models.IntegerField(choices=SIZE_CHOICES, default=0,  verbose_name='Размер')
+	recomendation = models.BooleanField(default=False, verbose_name="Рекомендуем")
+	new = models.BooleanField(default=False, verbose_name="Новый")
+	likes = models.IntegerField(default=0)
 
 	class Meta:
 		ordering = ['name']
@@ -40,3 +50,13 @@ class Product(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('catalog:ProductDetail', args=[self.id, self.slug])
+
+class ProductLike(models.Model):
+	user = models.ForeignKey(User, verbose_name='User')
+	favorites_products = models.ForeignKey(Product, verbose_name='Favorites', blank=True)
+
+
+	class Meta:
+		unique_together = ['user', 'favorites_products']
+	def get_bookmark_count(self):
+		return self.productlike_set().all().count()

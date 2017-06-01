@@ -1,0 +1,116 @@
+
+  {% extends 'mainpage/base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+{% block title %}
+  {% if category %} {{ category.name }} {% else %} Страница товаров {% endif %}
+{% endblock %}
+{% load query_update%}
+{% block content %}
+<section id="content row" class="container section_list">
+<ul class="breadcrumb ">
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <span class="divider"> / </span>
+      <li><a href="{% url 'catalog:search' %}">Catalog</a></li>
+</ul>
+<hr>
+  <div id="sidebar-list" class="col-sm-3">
+    
+    <form method="get">
+    <div class="row">
+    <div class="filter">
+    <h3>ФИЛЬТР ТОВАРОВ</h3>
+    </div>
+      <div class="form-group col-sm-12 col-md-12">
+          {{ f.form.category.label_tag }}
+          {% render_field f.form.category class="form-control" %}
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-12">
+          {{ f.form.price_gt.label_tag }}
+          {% render_field f.form.price_gt class="form-control" %}
+          {{ f.form.price_lt.label_tag }}
+          {% render_field f.form.price_lt class="form-control" %}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-12">
+          {{ f.form.size.label_tag }}
+          {% render_field f.form.size class="form-control" %}
+        </div>
+    </div>
+    <hr>
+    <div class="btn-filter">
+   <button type="submit" class="btn btn-primary ">
+        <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+    </div>
+  </form>
+  </div>
+  <div id="main" class="product_list col-sm-9">
+    <div class="items row">
+      {% for product in filter %}
+        <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="product">
+          <div class="img">
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="img-responsive">
+          </a>
+          </div>
+          <div class="product_info">
+          <div class="name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+          <div class="price">{{ product.price }} руб.</div>
+          <div class="product_buttons" style="display: none;" >
+              <a class="cart current-link" href="{{ product.get_absolute_url }}">
+              <i class="fa fa-shopping-cart" aria-hidden="true" style="visibility: hidden ;"></i>В корзину</a>
+
+              
+                {% if product.id in wishlist %}
+                    <div class="cart current-link stars-add" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style="visibility: hidden;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% else %}
+                    <div class="cart current-link stars" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style="visibility: hidden; ">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% endif %}
+          </div>
+
+
+          </div>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+<ul class="pagination">
+    {% if filter.has_previous %}
+      <li><a href="?{% query_update request.GET 'page' filter.previous_page_number %}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in filter.paginator.page_range %}
+      {% if filter.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?{% query_update request.GET 'page' i %}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    
+    {% if filter.has_next %}
+      <li><a href="?{% query_update request.GET 'page' filter.next_page_number %}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+
+  </section>
+  </code>
+</pre>
+{% endblock %}
+

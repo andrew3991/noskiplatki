@@ -1,0 +1,52 @@
+<div class="name" id="filter-name"><hr><h2>Новинки</h2><hr></div>
+<div class="owl-carousel">
+{% for product in products %}
+  <div class="slide item"> 
+        <div class="product">
+          <div class="img">
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.image %}{{ product.image.url }}{% endif %}" class="img-responsive">
+          </a>
+          </div>
+          <div class="product_info">
+          <div class="name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+          <div class="price">{{ product.price }} руб.</div>
+          <div class="product_buttons" style="display:none;">
+              <a class="cart current-link" href="{{ product.get_absolute_url }}">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>В корзину</a>
+          </div>
+          </div>
+        </div>
+        
+   </div>
+{% endfor %}
+</div>
+
+<div class="clearfix"></div>
+
+
+<div class="name" id="filter-name"><hr><h3>Рекомендации</h3><hr></div>
+<div class="owl-carousel">
+{% for product in products %}
+  <div class="slide item"> 
+        <div class="product">
+          <div class="img">
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.image %}{{ product.image.url }}{% endif %}" class="img-responsive">
+          </a>
+          </div>
+          <div class="product_info">
+          <div class="name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+          <div class="price">{{ product.price }} руб.</div>
+          <div class="product_buttons" style="display:none;">
+              <a class="cart current-link" href="{{ product.get_absolute_url }}">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>В корзину</a>
+          </div>
+          </div>
+        </div>
+        
+   </div>
+{% endfor %}
+</div>
+
+<div class="clearfix"></div>

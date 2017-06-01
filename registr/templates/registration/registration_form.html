@@ -1,14 +1,18 @@
-{% extends "registration/base.html" %}
+{% extends "mainpage/base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div style="width:30%">
-<form method="post" action=".">
+<div class="container" >
+<form class="form-signin" method="post" action=".">
+ <h2 class="form-signin-heading">Регистрация</h2>
   {% csrf_token %}
-  {{ form|crispy }}
+{% for field in form %}
+    {{ field }}
+{% endfor %}
 
-  <input type="submit" class="btn btn-primary" style="width:100%"  value="{% trans 'Submit' %}" />
+
+  <input type="submit" class="btn btn-lg btn-primary btn-block"  value="{% trans 'Зарегестрироваться' %}" />
 </form>
 </div>
 {% endblock %}

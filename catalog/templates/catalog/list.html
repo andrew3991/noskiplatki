@@ -1,4 +1,4 @@
-{% extends 'catalog/base.html' %}
+{% extends 'mainpage/base.html' %}
 
 {% load static %}
 
@@ -7,6 +7,12 @@
 {% endblock %}
 
 {% block content %}
+<section id="content row" class="container section_list">
+<ul class="breadcrumb">
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <span class="divider"> / </span>
+      <li><a href="{% url 'catalog:ProductList' %}">Catalog</a></li>
+</ul>
   <div id="sidebar-list" class="col-sm-3">
     <h3>Категории</h3>
     <ul>
@@ -34,5 +40,8 @@
       {% endfor %}
     </div>
   </div>
-{% endblock %}</code>
+  </section>
+  </code>
 </pre>
+{% endblock %}
+

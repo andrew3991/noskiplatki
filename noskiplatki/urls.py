@@ -20,9 +20,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('mainpage.urls')),
+    url(r'^cart/', include('cart.urls', namespace='cart')),
+    url(r'^', include('mainpage.urls', namespace='mainpage')),
     url(r'^', include('registr.urls')),
+    url(r'^', include('news.urls', namespace='news')),
     url(r'^', include('catalog.urls', namespace='catalog')),
+    url(r'^order/', include('orders.urls', namespace='orders')),
+    url(r'^accounts/', include('user_profiles.urls', namespace='user_profiles')),
+
     
 ]
 if settings.DEBUG:

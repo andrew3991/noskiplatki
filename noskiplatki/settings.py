@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'registr',
     'catalog',
     'crispy_forms',
+    'cart',
+    'orders',
+    'user_profiles',
+    'widget_tweaks',
+    'news'
+
 ]
 
 MIDDLEWARE = [
@@ -49,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -67,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart'
             ],
         },
     },
@@ -83,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'noskiplatki',
         'USER': 'noskiplatkiuser',
-        'PASSWORD': '1234',
+        'PASSWORD': 'nosplat39',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -135,11 +143,15 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+
 #двухфазовая аутентификац
 
 # добавляем приложение в setting.py
 ACCOUNT_ACTIVATION_DAYS = 1 # кол-во дней для хранения кода активации
-AUTH_PROFILE_MODULE = 'user_profile.UserProfile'
+AUTH_PROFILE_MODULE = 'user_profiles.UserProfile'
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_USER_MODEL_EMAIL_FIELD= 'email'
 # для отправки кода активации
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 AUTH_USER_EMAIL_UNIQUE = True
@@ -151,3 +163,5 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'avmusss@gmail.com'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+CART_SESSION_ID = 'cart'

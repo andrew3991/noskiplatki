@@ -1,0 +1,34 @@
+{% extends 'mainpage/base.html' %}
+
+{% block content %}
+<section id="content row" class="container section_list">
+  <div id="main" class=" col-sm-6 col-sm-offset-3">
+  <h1>Общая информация</h1>
+    <div class="items row">
+    <table class="table table-striped table-bordered" style="table-layout: fixed;">
+        <tbody>
+            <tr>
+                <th>Имя</th>
+                <td style="width:80%;">{{user.first_name}}</td>
+            </tr>
+            <tr>
+                <th>Фамилия</th>
+                <td style="width:80%;">{{user.last_name}}</td>
+            </tr>
+            <tr>
+                <th>Email адрес</th>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <th>Телефон</th>
+                <td>{{ user.userprofile.phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <a href="{% url "user_profiles:edite_profile"%}" class="btn btn-light">Изменить</a>
+    </div>
+
+        
+</section>
+{% endblock %}

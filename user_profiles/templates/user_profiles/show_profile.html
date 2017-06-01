@@ -1,0 +1,25 @@
+
+{% extends 'mainpage/base.html' %}
+
+
+{% block content %}
+<section id="content row" class="container section_list">
+  <div id="sidebar-list" class="col-sm-3">
+    <ul>
+      <li>
+        <a href="{% url "user_profiles:show_profile_about" %}" >Общая информация</a>
+      </li>
+      <li >
+        <a href="{% url "user_profiles:show_profile_favorites" %}">Закладки</a>
+      </li>
+      <li >
+        <a href="{% url "user_profiles:show_order_history" %}">Ваши заказы</a>
+      </li>
+    </ul>
+
+
+
+
+  </section>
+
+{% endblock %}

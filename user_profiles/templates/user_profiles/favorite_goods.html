@@ -1,0 +1,37 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+<section id="content row" class="container section_list">
+    <div id="main" class=" col-sm-8 col-sm-offset-2">
+      <h3 style="text-align: center;">Закладки</h3>
+      <div class="items row">
+          <table class="table table-striped table-bordered" style="table-layout: fixed;">
+            <thead>
+              <tr>
+                <th>Фото</th>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Удалить</th>
+              </tr>
+            </thead>
+          {% for pr in product %}
+            {% for fav in favorites_products %}
+              {%if pr.id == fav.favorites_products_id %}
+                <tbody>
+                  <tr>      
+                    <td class="info" style="width:80%;"><a href="{{ pr.get_absolute_url }}">
+                    <img src="{{ pr.image.url }}" class="img-responsive" />
+                    </a></td>
+                    <td><a href="{{ pr.get_absolute_url }}">{{ pr.name }}</a></td>
+                    <td>{{ pr.price }}</td>
+                    <td><a href="#">Удалить</a></td>
+                  </tr>
+                </tbody>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          </table>
+
+      </div>
+    </div>
+</section>
+    {% endblock %}
