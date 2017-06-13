@@ -1,0 +1,59 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+
+
+<style type="text/css">
+.contact-list {
+    list-style: none;
+    margin: 8%;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+
+}
+.contact-list li {
+    float: left;
+    width: 320px;
+    margin-bottom: 20px;
+}
+.contact-list li.address strong {
+    color: #a24f4f;
+    background: url(../images/ico-02.png) no-repeat 0 50%;
+}
+.contact-list li.phone strong {
+    color: #8ba652;
+    background: url(../images/ico-03.png) no-repeat 0 50%;
+}
+.contact-list li.email strong {
+    color: #416383;
+    background: url(../images/ico-04.png) no-repeat 0 50%;
+}
+.contact-list li strong {
+    display: block;
+    padding: 0 0 0 25px;
+    font: 14px/20px 'futurafuturiscbold',Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+}
+</style>
+
+
+<ul class="contact-list"> 	 
+  <li class="address"> 		<strong>Адрес производства:</strong> 		 
+    <address>Россия,  г. Калининград, ул.Театральная, д. 69а</address>
+   </li>
+ 
+  <li class="address"> 		<strong>Адреса торговых точек:</strong> 		 
+    <address>г. Москва, ул. Волочаевская, 12а, стр. 1а</address>
+   
+    <address>г. Санкт-Петербург, Торфяная дор., 7</address>
+    <address>Россия,  г. Калининград, ул.Театральная, д. 69а</address>
+  
+   </li>
+ 	 
+  <li class="phone"> 		<strong>Телефоны:</strong> 		<span>
++7 (905) 245 39 92</span></li>
+ 	 
+  <li class="email"> 		<strong>E-mail:</strong> 		<a href="#">ala-rus39@mail.ru</a> 	</li>
+ </ul>
+{% endblock %}

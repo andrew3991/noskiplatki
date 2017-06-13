@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def PostNewsList(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	paginator = Paginator(posts, 1)
+	paginator = Paginator(posts, 9)
 	page = request.GET.get('page')
 	try:
 		posts_list = paginator.page(page)
@@ -20,3 +20,5 @@ def PostNewsList(request):
 def PostNewsDetail(request, id):
 	post = get_object_or_404(Post, id=id)
 	return render(request, 'news/detail_news.html', {'post':post})
+
+	

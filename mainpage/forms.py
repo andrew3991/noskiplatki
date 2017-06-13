@@ -10,15 +10,15 @@ class ClientForm(forms.ModelForm):
 		fields = ['name','email', 'number_phone', 'client_message']
 		widgets = {
 			'name':forms.TextInput(
-				attrs={'class': 'form-control','id':'name', 'required': True, 'placeholder': 'Say name...'}
+				attrs={'class': 'form-control','id':'name', 'required': True, 'placeholder': 'ФИО'}
 				),
 			'email':forms.TextInput(
-				attrs={'class': 'form-control','id':'email', 'required': True, 'placeholder': 'Say email...'}
+				attrs={'class': 'form-control','id':'email', 'required': True, 'placeholder': 'email'}
 				),
 			'number_phone':forms.TextInput(
-				attrs={'class': 'form-control','id':'number_phone', 'required': True, 'placeholder': 'Say number_phone...'}
+				attrs={'class': 'form-control','id':'number_phone', 'required': True, 'placeholder': 'Телефон'}
 				),
 			'client_message':forms.Textarea(
-				attrs={'class': 'form-control','id':'client_message', 'required': False, 'placeholder': 'Say message...'}
+				attrs={'class': 'form-control','id':'client_message', 'required': False, 'placeholder': 'Сообщение'}
 				),
 		}

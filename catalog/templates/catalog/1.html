@@ -10,11 +10,13 @@
 {% load query_update%}
 {% block content %}
 <section id="content row" class="container section_list">
-<ul class="breadcrumb ">
-      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+  <ul class="breadcrumb">
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span>Главная страница</a></li>
       <span class="divider"> / </span>
-      <li><a href="{% url 'catalog:search' %}">Catalog</a></li>
-</ul>
+      <li><a href="{% url 'catalog:search' %}">Каталог</a></li>
+      <span class="divider"> / </span>
+
+  </ul>
 <hr>
   <div id="sidebar-list" class="col-sm-3">
     
@@ -45,6 +47,20 @@
         </div>
     </div>
     <hr>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-12">
+          {{ f.form.new.label_tag }}
+          {% render_field f.form.new class="form-control" %}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-12">
+          {{ f.form.akcii.label_tag }}
+          {% render_field f.form.akcii class="form-control" %}
+        </div>
+    </div>    
+    <hr>
     <div class="btn-filter">
    <button type="submit" class="btn btn-primary ">
         <span class="glyphicon glyphicon-search"></span> Search
@@ -52,10 +68,12 @@
     </div>
   </form>
   </div>
+
+{% if filter %}  
   <div id="main" class="product_list col-sm-9">
     <div class="items row">
       {% for product in filter %}
-        <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-12">
         <div class="product">
           <div class="img">
           <a href="{{ product.get_absolute_url }}">
@@ -67,14 +85,14 @@
           <div class="price">{{ product.price }} руб.</div>
           <div class="product_buttons" style="display: none;" >
               <a class="cart current-link" href="{{ product.get_absolute_url }}">
-              <i class="fa fa-shopping-cart" aria-hidden="true" style="visibility: hidden ;"></i>В корзину</a>
+              <i class="fa fa-shopping-cart" aria-hidden="true" ></i>В корзину</a>
 
               
                 {% if product.id in wishlist %}
-                    <div class="cart current-link stars-add" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style="visibility: hidden;">
+                    <div class="cart current-link stars-add" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
                     <i class="fa fa-star" aria-hidden="true"></i></div>
                 {% else %}
-                    <div class="cart current-link stars" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style="visibility: hidden; ">
+                    <div class="cart current-link stars" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
                     <i class="fa fa-star" aria-hidden="true"></i></div>
                 {% endif %}
           </div>
@@ -87,10 +105,10 @@
     </div>
   </div>
 
-
+<div class="pagination center">
 <ul class="pagination">
     {% if filter.has_previous %}
-      <li><a href="?{% query_update request.GET 'page' filter.previous_page_number %}">&laquo;</a></li>
+      <li class="page-item"><a href="?{% query_update request.GET 'page' filter.previous_page_number %}">&laquo;</a></li>
     {% else %}
       <li class="disabled"><span>&laquo;</span></li>
     {% endif %}
@@ -107,10 +125,15 @@
     {% else %}
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}
-  </ul>
+</ul>
+</div>
 
+{% else %}
+<div id="main" class="product_list col-sm-9"><h1>Данный товар не присутствует на сайте</h1></div>
+{% endif %}
   </section>
-  </code>
-</pre>
+
+
+
 {% endblock %}
 

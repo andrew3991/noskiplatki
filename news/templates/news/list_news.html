@@ -3,24 +3,36 @@
 {% load static %}
 
 {%block content%}
+  <ul class="breadcrumb">
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span>Главная страница</a></li>
+      <span class="divider"> / </span>
+      <li><a href="{% url 'catalog:search' %}">Новости</a></li>
+      <span class="divider"> / </span>
+
+  </ul>
+
 <div id="wrapper" class="container">
+
+
+
   <div  class="row">
     {% for post in posts %}
     
-    <div  class="col-lg-8">
-
+    <div  class="col-lg-6 col-lg-offset-3">
+        <div class="row">
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         <div class="img">
           <a href="{{ post.get_absolute_url }}">
-            <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="img-responsive">
+  <img class="img-thumbnail" src="{% if post.image %}{{ post.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" >
           </a>
           </div>
-        {{ post.text }}
+        {{ post.text|truncatewords:20 }}
 <hr><br><br><br>
+    </div>
     </div>
     {% endfor %}
   </div>
-
+<div class="pagination center">
   <ul class="pagination">
     {% if posts.has_previous %}
       <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
@@ -41,6 +53,7 @@
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}
   </ul>
+</div>
 
 </div>
 {%endblock%}

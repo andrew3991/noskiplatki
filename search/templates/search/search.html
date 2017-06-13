@@ -1,0 +1,50 @@
+{% extends 'mainpage/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load query_update%}
+{% block content %}
+
+ <section id="content row" class="container section_list">
+{% if article_lists %} 
+<div id="main" class="product_list col-sm-9 col-sm-offset-2">
+    <div class="items row">
+      {% for product in article_lists %}
+        <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="product">
+          <div class="img">
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="img-responsive">
+          </a>
+          </div>
+          <div class="product_info">
+          <div class="name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+          <div class="price">{{ product.price }} руб.</div>
+          <div class="product_buttons" style="display: none;" >
+              <a class="cart current-link" href="{{ product.get_absolute_url }}">
+              <i class="fa fa-shopping-cart" aria-hidden="true" ></i>В корзину</a>
+
+              
+                {% if product.id in wishlist %}
+                    <div class="cart current-link stars-add" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% else %}
+                    <div class="cart current-link stars" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% endif %}
+          </div>
+
+
+          </div>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% else %}
+<div id="main" class="product_list col-sm-12">
+        <h2>Не найдено публикаций по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</h2>
+</div>
+{% endif %}
+</section>
+{% endblock %}

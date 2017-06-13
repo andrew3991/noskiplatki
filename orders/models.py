@@ -3,6 +3,12 @@ from catalog.models import Product
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
+
+METHOD_CHOICES = (
+	(1, 'Курьерская доставка или доставка Почтой России '),
+)
+
+
 class CommonInfo(models.Model):
 	first_name = models.CharField(verbose_name='Имя', max_length=50,blank=True)
 	last_name = models.CharField(verbose_name='Фамилия', max_length=50,blank=True)
@@ -17,6 +23,7 @@ class CommonInfo(models.Model):
 
 class Order(CommonInfo):
 	user = models.ForeignKey(User, related_name='order_auth_user',blank=True,null=True )
+	method = models.CharField( max_length=250, choices=METHOD_CHOICES, default='',  verbose_name='Метод')
 	created = models.DateTimeField(verbose_name='Создан', auto_now_add=True)
 	updated = models.DateTimeField(verbose_name='Обновлен', auto_now=True)
 	paid = models.BooleanField(verbose_name='Оплачен', default=False)

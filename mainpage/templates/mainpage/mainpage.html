@@ -19,19 +19,19 @@
   <div  class="row">
     <div  class="col-sm-4 col-md-4  col-lg-4">
       <div class="row">
-        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div class="well well-1"><a href="{% url "catalog:search" %}">ЖЕНСКИЕ НОСКИ</a></div></div>
-        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div class="well well-2"><a href="{% url "catalog:ProductListByCategory" category_slug='platki' %}">ПЛАТКИ</a></div></div>
+        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div class="well well-1"><a href="{% url "catalog:search" %}?category=2">ЖЕНСКИЕ НОСКИ</a></div></div>
+        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div class="well well-2"><a href="{% url "catalog:search" %}?category=1">ПЛАТКИ</a></div></div>
       </div>
     </div>
     <div  class="col-sm-4 col-md-4  col-lg-4">
       <div class="row">
-        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div   id="sidebar"><a href="{% url "catalog:ProductListByCategory" category_slug='novinki' %}">НОВИНКИ</a></div></div>
+        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div   id="sidebar"><a href="{% url "catalog:search" %}?new=True">НОВИНКИ</a></div></div>
       </div>
     </div>
     <div  class=" col-sm-4 col-md-4  col-lg-4">
       <div class="row">
-        <div class="category-product col-sm-12 col-md-4 col-lg-12 "><div class="well well-3"><a href="{% url "catalog:ProductListByCategory" category_slug='muzhskie-noski' %}">МУЖСКИЕ НОСКИ</a></div></div>
-        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div class="well well-4"><a href="{% url "catalog:ProductListByCategory" category_slug='akcii' %}">АКЦИИ</a></div></div>
+        <div class="category-product col-sm-12 col-md-4 col-lg-12 "><div class="well well-3"><a href="{% url "catalog:search" %}?category=3">МУЖСКИЕ НОСКИ</a></div></div>
+        <div class="category-product col-sm-12 col-md-4 col-lg-12"><div class="well well-4"><a href="{% url "catalog:search" %}?akcii=True">АКЦИИ</a></div></div>
       </div>
     </div>
   </div>

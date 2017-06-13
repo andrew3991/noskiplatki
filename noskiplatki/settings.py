@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'search.apps.SearchConfig',
+    'django.contrib.postgres',
+    'bootstrap3',
+    'django_filters',
     'mainpage',
     'registr',
     'catalog',
@@ -91,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'noskiplatki',
         'USER': 'noskiplatkiuser',
-        'PASSWORD': 'nosplat39',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -161,7 +165,6 @@ EMAIL_HOST_USER = 'avmusss@gmail.com'
 EMAIL_HOST_PASSWORD = '1spain2lamanga3'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'avmusss@gmail.com'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 CART_SESSION_ID = 'cart'

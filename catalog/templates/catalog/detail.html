@@ -11,35 +11,42 @@
 
 <section id="content row" class="container">
   <ul class="breadcrumb">
-      <li><a href="{% url 'mainpage:PostList' %}">Home</a></li>
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span>Главная страница</a></li>
       <span class="divider"> / </span>
-      <li><a href="{% url 'catalog:search' %}">Catalog</a></li>
+      <li><a href="{% url 'catalog:search' %}">Каталог</a></li>
       <span class="divider"> / </span>
       <li>
         <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
       </li>
   </ul>
+  <div class="product-name">
+    <h1 style="text-align: center;">{{ product.name }}</h1>
+
+  </div>
   <div class="product-detail">
-    <div class="col-sm-4" id="webpage">
+    <div class="col-sm-5 col-lg-5" id="webpage">
       <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="img-responsive">
     </div>
-    <div class="col-sm-8">
-      <h1>{{ product.name }} - <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h1><h2></h2>
-      <span>
-        {{ product.description | linebreaks}}
-      </span>
+    <div class="col-sm-7">
+      <!-- <h1>{{ product.name }} - <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h1><h2></h2> -->
       <p class="price">
         {{ product.price }} руб.
       </p>
+      <span>
+        {{ product.description | linebreaks}}
+      </span>
+
 
       <form action="{% url "cart:CartAdd" product.id %}" method="post" class="add" style="width: 15%;">
         {% render_field cart_product_form.quantity class="form-control" %}
+        {% render_field cart_product_form.size class="form-control" placeholder=form.quantity.label %}
+       
         {% csrf_token %}
         <br>
-        <input type="submit" value="Добавить в корзину">
+        <input type="submit" value="Добавить в корзину" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase" style="height: 50px;">
         
       </form>
-      <a href="{% url "orders:OrderCreate" %}" class="btn">Оформить заказ</a>
+      <a href="{% url "orders:OrderCreate" %}" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase" >Оформить заказ</a>
 
 
 

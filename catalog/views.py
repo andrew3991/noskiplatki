@@ -34,8 +34,8 @@ def search(request):
 	product_list = Product.objects.all()
 	product_filter = ProductFilter(request.GET, queryset=product_list)
 
-	paginator = Paginator(product_filter, 9)
-	page = request.GET.get('page')
+	paginator = Paginator(product_filter.qs, 9)
+	page = request.GET.get('page', 1)
 	try:
 		product_list = paginator.page(page)
 	except PageNotAnInteger:

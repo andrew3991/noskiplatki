@@ -37,7 +37,7 @@ class Product(models.Model):
 	size = models.IntegerField(choices=SIZE_CHOICES, default=0,  verbose_name='Размер')
 	recomendation = models.BooleanField(default=False, verbose_name="Рекомендуем")
 	new = models.BooleanField(default=False, verbose_name="Новый")
-	likes = models.IntegerField(default=0)
+	akcii = models.BooleanField(default=False, verbose_name="Акции")
 
 	class Meta:
 		ordering = ['name']

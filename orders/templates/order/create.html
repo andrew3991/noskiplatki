@@ -9,12 +9,21 @@
 
 
 {% block content %}
+
+  <ul class="breadcrumb">
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span>Главная страница</a></li>
+      <span class="divider"> / </span>
+      <li><a href="">Заказ</a></li>
+      <span class="divider"> / </span>
+
+  </ul>
+
 <section id="content row" class="container">
 
 
 
 
-  <h1>Оформление заказа</h1>
+  <h2>Оформление заказа</h2>
   <div class="col-sm-4">
     <h2>Заполните форму</h2>
     <form class="order-form" action="." method="post">
@@ -27,15 +36,31 @@
     </form>
   </div>
 
-  <div class="order-info col-sm-8">
-    <h2>Ваш заказ</h2>
-    <ul>
-      {% for item in cart  %}
-        <li>
-          {{ item.product.name }} | Количество: {{ item.quantity }} | Цена: {{ item.total_price }}
-        </li>
+
+
+<div class="container">
+  <h2>Ваш заказ</h2>
+<div class="col-sm-6 col-sm-offset-1 ">
+<div class="table-responsive">
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>Продукт</th>
+        <th>Количество</th>
+        <th>Цена</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }}</td>
+          </tr>
       {% endfor %}
-    </ul>
-  </div>
+</tbody>
+</table></div></div>
+
+
   </section>
 {% endblock %}

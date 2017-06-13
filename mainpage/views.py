@@ -50,3 +50,9 @@ def contact(request):
 			response_data['client_message'] = client.client_message
 
 			return JsonResponse(response_data)
+
+
+def partner(request):
+	return render(request, 'mainpage/partner.html', {})
+def contacts(request):
+	return render(request, 'mainpage/contacts.html', {})

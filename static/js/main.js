@@ -5,7 +5,7 @@ $(document).ready(function(){
 		});
 
     /*Catalog item Add/like*/
-    $(".product").hover(function(){
+/*    $(".product").hover(function(){
     	$(this).find('.product_buttons').stop();
         $(this).find('#likes').css('visibility','visible').animate();
         $(this).find('.product_buttons').show(200);
@@ -16,6 +16,17 @@ $(document).ready(function(){
         $(this).find('.product_buttons').hide(150);
         $(this).find('#likes').css('visibility','hidden').animate();
         $(this).find('.product_info').css('margin-bottom','0px').animate();
+        
+    }); */
+
+    $(".product").hover(function(){
+        $(this).find('.product_buttons').stop();
+        $(this).find('.product_buttons').slideToggle(250)
+        
+    },
+    function(){
+        $(this).find('.product_buttons').stop();
+        $(this).find('.product_buttons').slideToggle(250);
         
     }); 
     /*CAROUSEL*/

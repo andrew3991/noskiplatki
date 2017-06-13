@@ -6,12 +6,20 @@
 
 
 {% block content %}
-<section id="content row" class="container">
+<ul class="breadcrumb ">
+      <li><a href="{% url 'mainpage:PostList' %}"><span class="glyphicon glyphicon-home"></span> Главная страница</a></li>
+      <span class="divider"> / </span>
+      <li><a href="">Корзина</a></li>
+</ul>
+
+
+<div class="container">
   <h1>Ваша корзина товаров</h1>
-  <table class="table-cart" border="1px">
+<div class="table-responsive">
+  <table class="table" >
     <thead>
       <tr>
-        <th>Изображение</th>
+        <td>Изображение</td>
         <th>Продукт</th>
         <th>Количество</th>
         <th>Удалить</th>
@@ -23,9 +31,9 @@
       {% for item in cart %}
         {% with product=item.product %}
           <tr>
-            <td class="cart-img">
+            <td  style="width: 120px;">
               <a href="{{ product.get_absolute_url }}">
-                <img src="{{ product.image.url }}" class="img-responsive" />
+                <img src="{{ product.image.url }}" class="img-responsive img-thumbnail" />
               </a>
             </td>
             <td>{{ product.name }}</td>
@@ -39,24 +47,25 @@
               </form>
             </td>
             <td><a href="{% url "cart:CartRemove" product.id %}">Удалить</a></td>
-            <td class="num">{{ item.price }} руб.</td>
-            <td class="num">{{ item.total_price }} руб.</td>
+            <td >{{ item.price }} руб.</td>
+            <td >{{ item.total_price }} руб.</td>
           </tr>
         {% endwith %}
       {% endfor %}
         
-        <tr class="total">
+        <tr >
           <td>Всего</td>
           <td colspan="4"></td>
-          <td class="num">{{ cart.get_total_price|floatformat:"2" }} руб.</td>
+          <td >{{ cart.get_total_price|floatformat:"2" }} руб.</td>
         </tr>
     </tbody>
   </table>
-  <p>Применить купон</p>
+  </div>
+<!--   <p>Применить купон</p> -->
 
   <p class="text-right">
-    <a href="{% url "orders:OrderCreate"%}" class="btn btn-light">Оформить заказ</a>
-    <a href="{% url "catalog:search"%}" class="btn btn-light">Продолжить Шопинг</a>
+    <a href="{% url "orders:OrderCreate"%}" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase">Оформить заказ</a>
+    <a href="{% url "catalog:search"%}" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase">Продолжить Шопинг</a>
   </p>
-  </section>
+  </div>
 {% endblock %}

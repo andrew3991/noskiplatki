@@ -433,15 +433,18 @@ fieldset[disabled] .btn-theme {
 
 #sidebar a{
   color: white;
-  font-size: 3em;
-  font-family: Hind, fantasy;
+  font-size: 2.5em;
+  font-family: "Montserrat",Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
 }
 
 
 #sidebar a:hover{
-  font-size: 3em;
-  color: #2a3fde;
-  font-family: Hind, fantasy;
+  font-size: 2.5em;
+  font-family: "Montserrat",Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
 }
 
 .well{
@@ -452,13 +455,16 @@ fieldset[disabled] .btn-theme {
 
 .well a{
   color: white;
-  font-size: 3em;
-  font-family: Hind, fantasy;
+  font-size: 2.5em;
+  font-family: "Montserrat",Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
 }
 .well a:hover{
-  font-size: 3em;
-  color: #2a3fde;
-  font-family: Hind, fantasy;
+  font-size: 2.5em;
+  font-family: "Montserrat",Arial,Helvetica,sans-serif;
+    font-weight: 700;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
 }
 
 #featured .category-product .well{
@@ -469,6 +475,16 @@ fieldset[disabled] .btn-theme {
  padding: 310px 0; 
 text-align: center;
 border-radius: 15px;
+
+       -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+#sidebar:hover{
+  -webkit-filter:drop-shadow(0 0 15px blue);
+
 
 }
 
@@ -585,9 +601,17 @@ border-radius: 15px;
   display: block;
   text-align: center;
 }
+.product-name h1{
+  color: #202020;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+}
 .product-detail{
-  margin-top: 10%;
-  margin-bottom: 60%;
+  margin-top: 3%;
+  margin-bottom: 40%;
+  border-top: 1px solid #ebebeb;
+  padding-top: 20px;
 }
 .price{
   font-weight: 600;
@@ -788,6 +812,17 @@ hr {
     color: black; /* Цвет линии для IE6-7 */
     height: 1px; /* Толщина линии */
    }
+
+
+
+
+.pagination.center,
+.pagination.center ul {
+    float: left;
+    position: relative;
+}
+.pagination.center { left: 50%; }
+.pagination.center ul { left: -50%; }
 /*!!!!!LOOOP!!!!!!!!!*/
 
 
@@ -822,7 +857,7 @@ hr {
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!profile!!!!!!!!!!!!!!1*/
 table {
-    table-layout: fixed;
+    /*table-layout: fixed;*/
     width:100%
 }
 td {
