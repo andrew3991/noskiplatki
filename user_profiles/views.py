@@ -47,10 +47,11 @@ def edite_profile(request):
 
 def remove_like_product(request, product_id):
 	user = request.user
-	product = get_object_or_404(ProductLike, favorites_products_id=product_id, user_id=user)
+	product = get_object_or_404(ProductLike, favorites_products_id=product_id, user_id=user.id)
 	ProductLike.delete(product)
 
 	return redirect('user_profiles:show_profile_favorites')
+	
 
 def show_order_history(request):
 	user = request.user

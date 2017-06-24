@@ -4,6 +4,9 @@
 
 {% block content %}
 <div class="container" >
+{% if form.errors %}
+<p>{% blocktrans %}Возможно email или логин уже существует или введеные вами пароли не совпадают. {% endblocktrans %}</p>
+{% endif %}
 <form class="form-signin" method="post" action=".">
  <h2 class="form-signin-heading">Регистрация</h2>
   {% csrf_token %}

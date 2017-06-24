@@ -58,19 +58,23 @@ class MyCustomUserForm(RegistrationFormUniqueEmail):
         ]
     username = forms.CharField(
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'name': 'username','placeholder':'Username'}))
+            attrs={'class': 'form-control', 'name': 'username','placeholder':'Логин'}))
 
     email = forms.EmailField(help_text=None, required=True,
         widget=forms.EmailInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Email'}))
     
     password1 = forms.CharField(
-        help_text=None,widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Password'})
+        help_text=None,widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Пароль'})
     )
 
     password2 = forms.CharField(
-        help_text=None,widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Password'})
+        help_text=None,widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Повторите пароль'})
     )
    
+    def clean_password(self):
+        if self.data['password1'] != self.data['password2']:
+            raise forms.ValidationError('Passwords are not the same')
+        return self.data['password1']
 
 class EmailOnlyAuthenticationForm(AuthenticationForm):
     """
@@ -83,7 +87,7 @@ class EmailOnlyAuthenticationForm(AuthenticationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'name': 'username','placeholder':'Email address'}))
+            attrs={'class': 'form-control', 'name': 'username','placeholder':'Email или Логин'}))
 
     password = forms.CharField(label="Password", max_length=30, 
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Password'}))
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password','placeholder':'Пароль'}))

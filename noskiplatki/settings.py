@@ -16,6 +16,10 @@ from django.core.mail import send_mail
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+AUTHENTICATION_BACKENDS = [
+    'registr.email-auth.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -23,17 +27,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5yy%02qkti_)+4qnqlwbsx1bu7_az9qf-%t554fs67r@0drkyj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.noski-platki.ru', '188.226.129.57']
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',

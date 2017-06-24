@@ -38,12 +38,12 @@
 
 
       <form action="{% url "cart:CartAdd" product.id %}" method="post" class="add" style="width: 15%;">
-        {% render_field cart_product_form.quantity class="form-control" %}
-        {% render_field cart_product_form.size class="form-control" placeholder=form.quantity.label %}
+        Количество: {% render_field cart_product_form.quantity class="form-control" placeholder=form.quantity.label %}
+        Размер: {% render_field cart_product_form.size class="form-control" placeholder=form.quantity.label %}
        
         {% csrf_token %}
         <br>
-        <input type="submit" value="Добавить в корзину" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase" style="height: 50px;">
+        <input type="submit" value="Добавить в корзину" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase" style="height: 59px;">
         
       </form>
       <a href="{% url "orders:OrderCreate" %}" class="btn btn-theme btn-theme-md btn-white-bg text-uppercase" >Оформить заказ</a>

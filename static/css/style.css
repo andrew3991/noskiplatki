@@ -634,8 +634,11 @@ form.add input[type="submit"]{
   background: #2a6496;
   border-radius: 3px;
   border: 0;
-  padding: 5px 10px;
+  padding: 5px 15px;
   color: white;
+}
+form.add input[type="submit"]:hover{
+  background: #2a3fde;
 }
 .table-cart{
   width: 100%;

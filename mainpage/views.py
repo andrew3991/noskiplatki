@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from catalog.models import  Product
+from catalog.models import  Product, ProductLike
 from noskiplatki import settings
 from .forms import ClientForm
 from .models import Client
@@ -15,7 +15,12 @@ from django.core.urlresolvers import reverse
 def post_list(request):
 	form=ClientForm()
 	products = Product.objects.filter(available=True)
-	return render(request, 'mainpage/mainpage.html', {'products':products,'form':form})
+
+	wishlist = []
+	wishlists = ProductLike.objects.filter(user=request.user.id)
+	for e in wishlists:
+		wishlist.append(e.favorites_products_id)
+	return render(request, 'mainpage/mainpage.html', {'wishlist':wishlist, 'products':products,'form':form})
 
 def contact(request):
 	if request.method == 'POST':

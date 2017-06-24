@@ -24,7 +24,7 @@
                     </a></td>
                     <td><a href="{{ pr.get_absolute_url }}">{{ pr.name }}</a></td>
                     <td>{{ pr.price }}</td>
-                    <td><a href="#">Удалить</a></td>
+                    <td><a href="{% url 'user_profiles:remove_like_product' pr.id %}">Удалить</a></td>
                   </tr>
                 </tbody>
               {% endif %}

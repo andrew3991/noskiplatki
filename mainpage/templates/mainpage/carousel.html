@@ -14,6 +14,15 @@
           <div class="product_buttons" style="display:none;">
               <a class="cart current-link" href="{{ product.get_absolute_url }}">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>В корзину</a>
+
+                {% if product.id in wishlist %}
+                    <div class="cart current-link stars-add" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% else %}
+                    <div class="cart current-link stars" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% endif %}
+
           </div>
           </div>
         </div>
@@ -41,6 +50,17 @@
           <div class="product_buttons" style="display:none;">
               <a class="cart current-link" href="{{ product.get_absolute_url }}">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>В корзину</a>
+
+
+                {% if product.id in wishlist %}
+                    <div class="cart current-link stars-add" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% else %}
+                    <div class="cart current-link stars" id="likes" data-catid="{{product.id}}" data-catslug="{{product.slug}}" style=" cursor: pointer;">
+                    <i class="fa fa-star" aria-hidden="true"></i></div>
+                {% endif %}
+
+
           </div>
           </div>
         </div>

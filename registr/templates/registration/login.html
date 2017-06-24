@@ -4,7 +4,9 @@
 
 {% block content %}
 <div class="container" >
-
+{% if form.errors %}
+<p>{% blocktrans %}Your username and password didn't match. Please try again.{% endblocktrans %}</p>
+{% endif %}
 <form class="form-signin" method="post" action=".">
  <h2 class="form-signin-heading">Войти в личный кабинет</h2>
   {% csrf_token %}

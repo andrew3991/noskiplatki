@@ -8,6 +8,7 @@ SIZE_CHOICES = (
 	(3,'43-45'),
 )
 
+
 class Category(models.Model):
 	name = models.CharField(max_length=200, db_index=True)
 	slug = models.SlugField(max_length=200, db_index=True, unique=True)
@@ -22,6 +23,19 @@ class Category(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('catalog:ProductListByCategory', args=[self.slug])
+
+class Undercategory(models.Model):
+	category = models.ForeignKey(Category, related_name='undercategory', verbose_name="Категория")
+	name = models.CharField(max_length=200, db_index=True)
+	slug = models.SlugField(max_length=200, db_index=True, unique=True)
+
+	class Meta:
+		ordering = ['name']
+		verbose_name = 'Подкатегория'
+		verbose_name_plural = 'Подкатегории'
+
+	def __str__(self):
+		return self.name
 
 class Product(models.Model):
 	category = models.ForeignKey(Category, related_name='products', verbose_name="Категория")
@@ -44,6 +58,8 @@ class Product(models.Model):
 		index_together = [
 			['id', 'slug']
 		]
+		verbose_name = 'Продукт'
+		verbose_name_plural = 'Продукты'
 
 	def __str__(self):
 		return self.name

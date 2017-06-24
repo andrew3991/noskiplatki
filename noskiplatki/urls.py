@@ -17,8 +17,14 @@ from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
+from noskiplatki.sitemap import DinamicSitemap, StaticSitemap, CatalogSitemap
+from django.contrib.sitemaps.views import sitemap
+
+sitemaps = {'articles': DinamicSitemap, 'static': StaticSitemap, 'catalog': CatalogSitemap}
+
 
 urlpatterns = [
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^', include('search.urls')),
@@ -28,7 +34,7 @@ urlpatterns = [
     url(r'^', include('catalog.urls', namespace='catalog')),
     url(r'^order/', include('orders.urls', namespace='orders')),
     url(r'^accounts/', include('user_profiles.urls', namespace='user_profiles')),
-
+    
     
 ]
 if settings.DEBUG:
