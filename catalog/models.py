@@ -1,6 +1,11 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+import datetime
+from django.utils import timezone
+
+
 
 SIZE_CHOICES = (
 	(1, '35-38'),
@@ -65,7 +70,7 @@ class Product(models.Model):
 		return self.name
 
 	def get_absolute_url(self):
-		return reverse('catalog:ProductDetail', args=[self.id, self.slug])
+		return reverse('catalog:ProductDetail', kwargs={'id': self.id, 'slug': self.slug})
 
 class ProductLike(models.Model):
 	user = models.ForeignKey(User, verbose_name='User')
@@ -76,3 +81,28 @@ class ProductLike(models.Model):
 		unique_together = ['user', 'favorites_products']
 	def get_bookmark_count(self):
 		return self.productlike_set().all().count()
+
+
+
+class Commenter(models.Model):
+
+	user = models.ForeignKey(User, verbose_name='User')
+	product = models.ForeignKey(Product, related_name='comments', verbose_name='Product')
+	path = ArrayField(models.IntegerField())
+	content = models.TextField('Комментарий')
+	pub_date = models.DateTimeField('Дата комментария', default=timezone.now)
+
+	def __str__(self):
+		return self.content[0:200]
+
+	def get_offset(self):
+		level = len(self.path) - 1
+		if level > 5:
+			level = 5
+		return level
+
+	def get_col(self):
+		level = len(self.path) - 1
+		if level > 5:
+			level = 5
+		return 12 - level

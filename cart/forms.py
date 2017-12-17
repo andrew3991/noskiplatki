@@ -10,5 +10,5 @@ SIZE_CHOICES = (
 )
 class CartAddProductForm(forms.Form):
 	quantity = forms.IntegerField(label="Количество", min_value=1)
-	size = forms.TypedChoiceField(label="Количество",choices=SIZE_CHOICES)
+	size = forms.TypedChoiceField(label="Размер",choices=SIZE_CHOICES)
 	update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)

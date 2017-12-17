@@ -68,11 +68,39 @@ span {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+/*  font-weight: 700;
   font-family: Hind, sans-serif;
   color: #515769;
   line-height: 1.4;
-  margin: 0 0 15px;
+  margin: 0 0 15px;*/
+    font-weight: normal;
+    font-family: 'gill_sansregular';
+    color: #000;
+    /*padding-bottom: 25px;
+    line-height: 1.4;
+    margin: 41px 0 15px;*/
+
+}
+#logo > h1, #logo >h2, #logo >h3, #logo >h4, #logo >h5, #logo >h6{
+      border-bottom: 1px solid rgba(0,0,0,.2);
+      margin: -70px 0 15px;
+      line-height: 1.4;
+      padding-bottom: 25px;
+}
+
+#filter-name > h1,#filter-name > h2,#filter-name > h3,#filter-name > h4,#filter-name > h5,#filter-name > h6 {
+/*  font-weight: 700;
+  font-family: Hind, sans-serif;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 15px;*/
+  font-weight: normal;
+    font-family: 'gill_sansregular';
+    color: #000;
+    padding-bottom: 25px;
+    line-height: 1.4;
+    margin: 41px 0 15px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
@@ -128,6 +156,21 @@ h4 {
 }
 
 
+/*Прокрутка*/
+#back-top {
+position: fixed;
+bottom: 15px;
+right: 3%;
+z-index: 999999
+}
+#back-top a {
+background: url(/static/images/writeus.svg) no-repeat;
+width: 80px;
+height: 80px;
+display: block;
+margin-bottom: 7px;
+z-index: 999999
+}
 
 
 /*!!!!!!!!!! login !!!!!!!!!!!!!!1*/
@@ -173,6 +216,14 @@ h4 {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.btn-auth:hover{
+  background-color: #ef1815;
+  border-color: #ef1815;
+}
+
+.btn-auth{
+  border-color: #a94442;
+}
 
 /*!!!!!!!!!! шапка !!!!!!!!!!!!!!1*/
 
@@ -181,22 +232,22 @@ h4 {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    border-bottom:  2px solid black;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    margin-bottom: 0px;
+    margin-bottom: -10px;
 }
 #top_page{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
-    background-color: #333; 
+    background-color: #650a0a; 
     border-radius: 0;
      border-bottom:  0;
     border-top: 0;
     border-left: 0;
     border-right: 0;
     margin-bottom: 0px;
+    /*height: 40px;*/
 }
 .navbar-inverse .navbar-toggle .icon-bar{
   background-color: black;
@@ -207,7 +258,7 @@ h4 {
 }
 
 .example3 .navbar-brand {
-  height: 80px;
+  height: 95px;
 }
 
 .example3 .nav >li >a {
@@ -220,42 +271,113 @@ h4 {
 }
 
 .navbar-brand>h3 {
+  font-family: 'gill_sansregular';
   height: 100%;
-  padding: 20px;
+  padding: 9px;
   font-size: 25px;
-  font-weight: 600;
-  color:  #6675e8;
-  line-height: 55px;
+  font-weight: 400;
+  color:  #ef1815;
 }
 
 .navbar-brand>img {
   height: 100%;
-  padding: 15px;
+  padding: 0;
   width: auto;
 }
 .navbar-inverse{
-	background-color: rgb(255,255,255);
+	background-color: rgb(0,0,0);
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-  color: #2a3fde;
+  color: #ef1818;
 }
 .navbar-inverse .navbar-nav>li>a {
-  font-size: 12px;
-  font-weight: 400;
-  color: #6675e8;
-  line-height: 55px;
-  padding: 20px;
+  font-family: 'gill_sansregular';
+  font-size: 16px;
+  font-weight: normal;
+  color: #650a0a;
+  /*line-height: 55px;*/
+  padding: 34px;
+    line-height: 1.4;
+    
 }
 
 .navbar-default .navbar-nav>li>a{
+  font-family: 'gill_sansregular';
+  font-weight: normal;
+  /*line-height: 55px;*/
+  font-size: 16px;
   color:#f5f5f5;
 }
 .navbar-default .navbar-nav>li>a:hover{
-  color:#d9edf7;
+  font-family: 'gill_sansregular';
+  font-weight: normal;
+  /*line-height: 55px;*/
+  
+  color:#ef1815;
 }
-.my-li:hover{
+
+
+
+.my-navbar ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: #767676;
+  text-align: center;
+  height: 600px;
+  display: block; /* добавляем блочность, если необходимо */
+  font-size: 0; /* убираем нежелательные отсутпы у дочерних элементов */
+}
+
+.my-navbar ul:before {
+  content:''; /* и */
+  height: 100%; /* вот */
+  display: inline-block; /* оно! */
+}
+
+.my-navbar >ul>li {
+  background: #ccc;
+  padding: 10px;
+  margin: 0 20px;
+  font-size: 16px; /* возвращаем размер шрифта */
+  display: inline-block; /* позволяем vertical-align выравнивать себя по вертикали */
+}
+
+.my-navbar ul:before, .my-navbar>ul>li {
+  vertical-align: middle; /* еще вот */
+}
+
+
+/*.my-li:hover{
   background:#d9edf7;
+}*/
+
+.my-li > a {
+    line-height: 0.2;
+    display: inline-block;
+    color:#ffeb3b;
+    text-decoration:none;
+    cursor: pointer;
+}
+.my-li > a:after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: #880e0e;
+    transition: width .3s ease-in-out;
+}
+.my-li > a:hover:after,
+.my-li > a:focus:after {
+    width: 100%;
+}
+
+.btn-find:hover {
+  background:#ef1818;
+}
+.btn-find > span{
+  color: white;
 }
 /*!!!!!!!!!!!!button to the catalog on the first page*/
 
@@ -314,6 +436,8 @@ fieldset[disabled] .btn-theme {
 }
 
 .btn-white-bg {
+  font-family: 'gill_sansregular';
+  font-size: 18px;
   color: #515769;
   background: #fff;
   border-color: transparent;
@@ -322,7 +446,7 @@ fieldset[disabled] .btn-theme {
 
 .btn-white-bg:hover, .btn-white-bg:focus, .btn-white-bg.focus {
   color: #fff;
-  background: #2a3fde ;
+  background: #ef1818 ;
   border-color: transparent;
 }
 
@@ -359,8 +483,8 @@ fieldset[disabled] .btn-theme {
 }
 
 .btn-theme-md {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 550;
   padding: 20px 30px;
 }
 
@@ -483,7 +607,9 @@ border-radius: 15px;
           transition: all 1s ease;
 }
 #sidebar:hover{
-  -webkit-filter:drop-shadow(0 0 15px blue);
+/*  -webkit-filter:drop-shadow(0 0 15px blue);*/
+box-shadow: inset 0 0 0 20px #ef1818;
+
 
 
 }
@@ -496,6 +622,10 @@ border-radius: 15px;
 #featured .category-product, #sidebar,
 #footer .menu-footer {
   margin-bottom: 20px;
+}
+
+#logo {
+  margin-bottom: 0;
 }
 
 
@@ -655,7 +785,7 @@ thead{
   color: white;
 }
 .btn{
-  background: #2a6496;
+  background: #a94442;
   color: white;
 }
 .btn-light{
@@ -726,7 +856,7 @@ thead{
   transition: all .4s ease;
 }
 #filter-name{
-  background-color: #d9edf7;
+  /*background-color: #650a0a;*/
 }
 .item .name a{
   line-height: 12px;
@@ -809,6 +939,8 @@ thead{
   transition-duration: .4s;
 }
 
+
+
 hr {
     border: none; /* Убираем границу */
     background-color: black; /* Цвет линии */
@@ -869,6 +1001,7 @@ td {
 .form-about {
   max-width: 430px;
   margin: 5% auto 5% auto;
+  text-align: center;
 }
 .form-about .form-signin-heading,
 .form-about .checkbox {
@@ -896,5 +1029,5 @@ td {
   border-bottom-left-radius: 0;
 }
 .contact-form {
-  background-color: #d9edf7;
+  background-color: #ffffff;
 }

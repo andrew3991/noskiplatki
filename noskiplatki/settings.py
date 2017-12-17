@@ -28,10 +28,10 @@ SECRET_KEY = '5yy%02qkti_)+4qnqlwbsx1bu7_az9qf-%t554fs67r@0drkyj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+ALLOWED_HOSTS = ['.noski-platki.ru', '37.139.17.99']
+# ALLOWED_HOSTS = ['.noski-platki.ru', '188.226.129.57']
 
-ALLOWED_HOSTS = ['.noski-platki.ru', '188.226.129.57']
-
-SITE_ID = 1
+SITE_ID = 2
 # Application definition
 
 INSTALLED_APPS = [
@@ -107,70 +107,3 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.10/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-
-    os.path.join(BASE_DIR, 'static'),
-
-)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-#двухфазовая аутентификац
-
-# добавляем приложение в setting.py
-ACCOUNT_ACTIVATION_DAYS = 1 # кол-во дней для хранения кода активации
-AUTH_PROFILE_MODULE = 'user_profiles.UserProfile'
-# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-# ACCOUNT_USER_MODEL_EMAIL_FIELD= 'email'
-# для отправки кода активации
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-AUTH_USER_EMAIL_UNIQUE = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'avmusss@gmail.com'
-EMAIL_HOST_PASSWORD = '1spain2lamanga3'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'avmusss@gmail.com'
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
-CART_SESSION_ID = 'cart'

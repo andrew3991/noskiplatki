@@ -19,7 +19,10 @@ $(document).ready(function(){
         
     }); */
 
-    $(".product").hover(function(){
+if (window.matchMedia('(max-width: 768px)').matches){
+       $(this).find('.product_buttons').css('display','block');
+} else {
+      $(".product").hover(function(){
         $(this).find('.product_buttons').stop();
         $(this).find('.product_buttons').slideToggle(250)
         
@@ -28,7 +31,9 @@ $(document).ready(function(){
         $(this).find('.product_buttons').stop();
         $(this).find('.product_buttons').slideToggle(250);
         
-    }); 
+    });
+}
+ 
     /*CAROUSEL*/
     $('.owl-carousel').owlCarousel({
     loop:false,
@@ -56,6 +61,9 @@ $(document).ready(function(){
     $( ".owl-next").html('<i class="fa fa-angle-right"></i>');
     
     /*CODE AJAX*/
+
+
+    
    $('.product_buttons  #likes').click(function(){
     var $obj = $(this);
     var catid;
@@ -102,6 +110,25 @@ $(document).ready(function(){
         send_date();
 
       })
+
+    function startLoadingAnimation(){
+          // найдем элемент с изображением загрузки и уберем невидимость:
+          var imgObj = $("#loadImg");
+          imgObj.show();
+         
+          // вычислим в какие координаты нужно поместить изображение загрузки,
+          // чтобы оно оказалось в серидине страницы:
+          var centerY = $(window).scrollTop() + ($(window).height() + imgObj.height())/2;
+          var centerX = $(window).scrollLeft() + ($(window).width() + imgObj.width())/2;
+         
+          // поменяем координаты изображения на нужные:
+          imgObj.offset({top:centerY, left:centerX});
+        };
+         
+    function stopLoadingAnimation(){
+          $("#loadImg").hide();
+        };
+
     function send_date() {
         console.log("create post is working!") // sanity check
         $.ajax({
@@ -114,9 +141,10 @@ $(document).ready(function(){
                     'csrfmiddlewaretoken': csrftoken }, // data sent with the post request
             // handle a successful response
             /*beforeSend: startLoadingAnimation(),*/
-
+            beforeSend: startLoadingAnimation(),
             success : function(json) {
                 /*stopLoadingAnimation()*/
+                stopLoadingAnimation()
                 $('#name').val(''); // remove the value from the input
                 $('#email').val('');
                 $('#number_phone').val('');
@@ -132,7 +160,7 @@ $(document).ready(function(){
         });
     };
 
-    
+
 
 
 

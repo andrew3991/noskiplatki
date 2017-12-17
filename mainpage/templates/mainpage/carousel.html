@@ -1,5 +1,6 @@
-<div class="name" id="filter-name"><hr><h2>Новинки</h2><hr></div>
-<div class="owl-carousel">
+{% load staticfiles %}
+<div class="name" id="filter-name"><h2>Новинки</h2></div>
+<div class="owl-carousel" >
 {% for product in products %}
   <div class="slide item"> 
         <div class="product">
@@ -34,7 +35,7 @@
 <div class="clearfix"></div>
 
 
-<div class="name" id="filter-name"><hr><h3>Рекомендации</h3><hr></div>
+<div class="name" id="filter-name"><h2>Рекомендации</h2></div>
 <div class="owl-carousel">
 {% for product in products %}
   <div class="slide item"> 

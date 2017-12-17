@@ -57,7 +57,7 @@
     }
  
 .well-1:hover, .well-2:hover, .well-3:hover, .well-4:hover {
-  -webkit-filter:drop-shadow(0 0 15px blue);
+  box-shadow: inset 0 0 0 23px #ef1818;
 
 }
     .well-2
@@ -127,7 +127,7 @@
     <script src = "{% static 'js/main.js' %}"></script>
 
   </head>
-<body id="body" data-spy="scroll" data-target=".header">
+<body id="body" data-spy="scroll" data-target=".header" >
 	  
  
 {% block header %}
@@ -144,7 +144,29 @@
   {% include "mainpage/footer.html" %}
 {% endblock %}
 
-
+<p id="back-top"><a href="#feedback"><span></span></a></p>
+<script>
+$(document).ready(function(){
+  $("#back-top").hide();
+  $(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('#back-top').fadeIn();
+    } 
+    else {
+      $('#back-top').fadeOut();
+  }
+});
+  $('#back-top a').click(function () {
+    $('body,html').animate({
+      scrollTop: $("#feedback").offset().top
+      }, 1000);
+    return false;
+    });
+  });
+});
+</script>
+<img src="{% static 'images/Spinner.svg' %}" id="loadImg" style="display: none;" />
 </body>
 </html>
 
